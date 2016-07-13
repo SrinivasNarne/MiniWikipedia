@@ -88,7 +88,11 @@ public class Application {
         }
         in.close();
 
-        // The JSON object received from Wikipedia needs to parsed to obtain "Extract".
+        /*
+         *  The JSON object received from Wikipedia needs to parsed to obtain "extract". The received object here
+         *  consists of nested JSON objects. So each of these objects are extracted before extracting the desired
+         *  "extract".
+         */
         JSONObject obj = new JSONObject(response.toString());
         JSONObject query = obj.getJSONObject("query");
         JSONObject pages = (query.getJSONObject("pages"));
